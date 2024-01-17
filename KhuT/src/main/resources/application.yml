@@ -1,1 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa : #jpa ??
+    http:
+      encoding:
+        charset: UTF-8
 
+    hibernate:
+      ddl-auto : create
+    properties:
+      hibernate :
+        #show_sql : true #??? ??? ??
+        format_sql : true #??? ??
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+logging.level:
+  org.hibernate.SQL: debug #??? ???? ??? ??? ??.
+  org.hibernate.type : trace #???? ?????? ? ? ?

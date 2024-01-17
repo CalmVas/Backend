@@ -17,10 +17,13 @@ public class History {
     @Column(name = "history_id")
     private Long id;
 
+    @Column
     private boolean completed;
 
+    @Column
     private LocalDateTime date;
 
+    @Column
     private String src;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -2,6 +2,7 @@ package prometheus.KhuT.Domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,4 +24,9 @@ public class MassageInfo {
     @JoinColumn(name = "massageplan_id")
     private MassagePlan massagePlan;
 
+    @Builder
+    public MassageInfo(Massage massage, MassagePlan massagePlan) {
+        this.massage = massage;
+        this.massagePlan = massagePlan;
+    }
 }

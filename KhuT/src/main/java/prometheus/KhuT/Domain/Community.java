@@ -17,16 +17,20 @@ public class Community {
     @Column(name = "community_id")
     private Long id;
 
+    @Column
     private String title;
 
+    @Column
     private String content;
 
+    @Column
     private LocalDateTime created_at;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column
     private Integer likes;
 
 }

@@ -17,8 +17,10 @@ public class BeforeAndAfter {
     @Column(name = "before_and_after_id")
     private Long id;
 
+    @Column
     private String beforeSrc;
 
+    @Column
     private String afterSrc;
 
     @ManyToOne(fetch = FetchType.LAZY)

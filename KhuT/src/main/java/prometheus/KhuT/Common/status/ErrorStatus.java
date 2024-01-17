@@ -19,12 +19,11 @@ public enum ErrorStatus implements BaseErrorCode {
     MEMBER_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4001", "사용자가 없습니다."),
     NICKNAME_NOT_EXIST(HttpStatus.BAD_REQUEST, "MEMBER4002", "닉네임은 필수 입니다."),
 
-    // 예시,,,
-    ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "ARTICLE4001", "게시글이 없습니다."),
+    // Massage 관련 에러
+    MASSAGE_NOT_FOUND(HttpStatus.NOT_FOUND, "MASSAGE4001", "마사지가 없습니다."),
 
-    // MapService Error
-    MAP_DONG_NOT_FOUND(HttpStatus.NOT_FOUND, "DONG4001", "동이 존재하지 않습니다"),
-    MAP_NO_DOCUMENT(HttpStatus.NOT_FOUND, "MAP4001", "문서가 존재하지 않습니다"),
+    // MassagePlan 관련 에러
+    MASSAGE_PLAN_NOT_FOUND(HttpStatus.NOT_FOUND, "MASSAGEPLAN4001", "마사지 플랜이 존재하지 않습니다"),
 
     // S3Service ERRor
     S3_NOT_CONVERTABLE(HttpStatus.NOT_MODIFIED, "S33004", "변환이 안됩니다"),
