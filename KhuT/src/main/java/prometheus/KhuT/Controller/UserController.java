@@ -25,10 +25,5 @@ public class UserController {
         return BaseResponseDto.onSuccess(joined);
     }
 
-    @GetMapping("/api/v1/")
-    public User hello(){
-        return new User();
-    }
-
 
 }
