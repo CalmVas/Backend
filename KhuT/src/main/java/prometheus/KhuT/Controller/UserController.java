@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import prometheus.KhuT.Common.BaseResponseDto;
+import prometheus.KhuT.Domain.User;
 import prometheus.KhuT.Dto.User.UserRequest;
 import prometheus.KhuT.Dto.User.UserResponse;
 import prometheus.KhuT.Service.UserService;
@@ -22,6 +23,11 @@ public class UserController {
         System.out.println("userCreateRequest = " + userCreateRequest.getName());
         UserResponse.UserCreateResponse joined = userService.join(userCreateRequest);
         return BaseResponseDto.onSuccess(joined);
+    }
+
+    @GetMapping("/api/v1/")
+    public User hello(){
+        return new User();
     }
 
 
