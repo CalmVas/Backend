@@ -20,7 +20,7 @@ public class UserController {
 
     @PostMapping("/api/v1/login")
     public BaseResponseDto<UserResponse.UserCreateResponse> login(@RequestBody UserRequest.UserCreateRequest userCreateRequest){
-        System.out.println("userCreateRequest = " + userCreateRequest.getName());
+        System.out.println("userCreateRequest. = " + userCreateRequest.getName());
         UserResponse.UserCreateResponse joined = userService.join(userCreateRequest);
         return BaseResponseDto.onSuccess(joined);
     }
