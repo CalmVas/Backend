@@ -1,40 +1,63 @@
 package prometheus.KhuT.Domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Generated;
 import lombok.NoArgsConstructor;
+import prometheus.KhuT.Converter.StringList.StringListConverter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 public class User {
-    @Id
+    @JsonIgnore
+    @Id // primary key
+    @Column(name = "user_id")
+    // 자동 증가 되는
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_id")
-    private Long id;
+    private Long userId;
 
-    @Column
-    private String name;
+    @Column(name = "username", length = 50, unique = true)
+    private String username;
 
-    @Column
+    @JsonIgnore
+    @Column(name = "email", length = 100)
     private String email;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @JsonIgnore
+    @Column(name = "password", length = 100)
+    private String password;
 
-    @Column
+    @Column(name = "nickname", length = 50)
+    private String nickname;
+
+    @JsonIgnore
+    @Column(name = "activated")
+    private boolean activated;
+
+    @Convert(converter = StringListConverter.class)
+    private List<String> roles = new ArrayList<>();
+
+    @Column(name = "createdAt")
     private LocalDateTime createdAt;
 
     @Builder
-    public User(String name, String email, Role role, LocalDateTime createdAt){
-        this.name = name;
+    public User(String username, String email, String password, String nickname, boolean activated, List<String> roles, LocalDateTime createdAt) {
+        this.username = username;
         this.email = email;
-        this.role = role;
+        this.nickname = nickname;
+        this.password = password;
+        this.activated = activated;
+        this.roles = roles;
         this.createdAt = createdAt;
     }
 
 }
+
+
